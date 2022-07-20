@@ -1,11 +1,14 @@
 const express = require('express');
 require('express-async-errors');
 
+const handleError = require('./middlewares/handlerError');
+
 // ...
 
 const app = express();
 
 app.use(express.json());
+app.use(handleError);
 
 // ...
 
