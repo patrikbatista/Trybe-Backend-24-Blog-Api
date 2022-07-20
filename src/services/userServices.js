@@ -7,6 +7,13 @@ const loginUser = async (email, password) => {
   return userExists;
 };
 
+const findUser = async (email) => {
+  const userExists = await User.findOne({ where: { email } });
+  if (!userExists) return false;
+  return true;
+};
+
 module.exports = {
   loginUser,
+  findUser,
 };
