@@ -14,7 +14,7 @@ const ERROR_INVALID_FIELDS = {
 module.exports = async (req, res) => {
   const { email, password } = req.body;
   console.log(email, password);
-  if (!email && !password) throw ERROR_UNDEFINED;
+  if (!email || !password) throw ERROR_UNDEFINED;
 
   const userExists = await userServices.loginUser(email, password);
   if (!userExists) throw ERROR_INVALID_FIELDS;

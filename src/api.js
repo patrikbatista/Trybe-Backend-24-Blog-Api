@@ -6,9 +6,9 @@ const routes = require('./routes');
 
 const app = express();
 
-app.use('/login', routes.login);
-
 app.use(express.json());
+
+app.use('/login', routes.login);
 app.use(handleError);
 
 // ...
