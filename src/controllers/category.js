@@ -10,8 +10,9 @@ const createCategory = async (req, res) => {
   const { name } = req.body;
   const validateName = categoryCreateSchemas.nameValidate(name);
   if (!validateName) throw ERROR_INVALID_NAME;
-  await categoryServices.createCategory(name);
-  return res.status(201).json(name);
+  const result = await categoryServices.createCategory(name);
+  console.log(result);
+  return res.status(201).json({ id: result.dataValues.id, name: result.dataValues.name });
 };
 
 module.exports = {
