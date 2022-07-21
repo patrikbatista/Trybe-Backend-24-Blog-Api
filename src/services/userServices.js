@@ -13,7 +13,13 @@ const findUser = async (email) => {
   return true;
 };
 
+const createUser = async ({ email, displayName, password, image }) => {
+  const newUser = await User.create({ email, displayName, password, image });
+  return newUser;
+};
+
 module.exports = {
   loginUser,
   findUser,
+  createUser,
 };
