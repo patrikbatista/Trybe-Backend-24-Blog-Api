@@ -22,6 +22,11 @@ const ERROR_USER_EXIST = {
   message: 'User already registered',
 };
 
+const ERROR_USER_NOT_EXIST = {
+  status: 404,
+  message: 'User does not exist',
+};
+
 const createUser = async (req, res, _next) => {
   const { displayName, email, password, image } = req.body;
 
@@ -51,6 +56,7 @@ const getUsers = async (req, res) => {
 const getUserId = async (req, res) => {
   const { id } = req.params;
   const user = await userServices.getUserId(id);
+  if (!user) throw ERROR_USER_NOT_EXIST;
   res.status(200).json(user);
 };
 
