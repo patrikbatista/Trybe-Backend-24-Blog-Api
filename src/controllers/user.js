@@ -13,7 +13,7 @@ const ERROR_INVALID_EMAIL = {
 };
 
 const ERROR_INVALID_PASSWORD = {
-  status: 409,
+  status: 400,
   message: '"password" length must be at least 6 characters long',
 };
 
