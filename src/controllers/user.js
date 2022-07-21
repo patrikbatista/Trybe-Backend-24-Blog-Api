@@ -13,7 +13,7 @@ const ERROR_INVALID_EMAIL = {
 };
 
 const ERROR_INVALID_PASSWORD = {
-  status: 400,
+  status: 409,
   message: '"password" length must be at least 6 characters long',
 };
 
@@ -33,7 +33,7 @@ const createUser = async (req, res, _next) => {
   
   const findUser = await userServices.findUser(email);
   if (findUser) throw ERROR_USER_EXIST;
-  
+
   const validatePassword = userCreateShemas.passwordValidate(password);
   if (!validatePassword) throw ERROR_INVALID_PASSWORD;
 
