@@ -6,6 +6,7 @@ const tokenValidate = require('../controllers/tokenValidate');
 const user = Router();
 
 user.post('/', userController.createUser);
+user.get('/:id', tokenValidate, userController.getUserId);
 user.get('/', tokenValidate, userController.getUsers);
 
 module.exports = user;
