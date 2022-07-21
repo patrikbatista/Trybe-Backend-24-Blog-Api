@@ -30,12 +30,13 @@ const createUser = async (req, res, _next) => {
 
   const validateEmail = userCreateShemas.emailValidate(email);
   if (!validateEmail) throw ERROR_INVALID_EMAIL;
-
+  
+  const findUser = await userServices.findUser(email);
+  if (findUser) throw ERROR_USER_EXIST;
+  
   const validatePassword = userCreateShemas.passwordValidate(password);
   if (!validatePassword) throw ERROR_INVALID_PASSWORD;
 
-  const findUser = await userServices.findUser(email);
-  if (findUser) throw ERROR_USER_EXIST;
   const result = await userServices.createUser({ email, displayName, password, image });
   const token = createToken(displayName, result.dataValues.id);
 
