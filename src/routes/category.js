@@ -6,7 +6,7 @@ const tokenValidate = require('../controllers/tokenValidate');
 const category = Router();
 
 category.post('/', tokenValidate, categoryController.createCategory);
+category.get('/', tokenValidate, categoryController.getCategories);
 // category.get('/:id', tokenValidate, userController.getUserId);
-// category.get('/', tokenValidate, categoryController.getUsers);
 
 module.exports = category;
