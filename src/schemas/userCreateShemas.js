@@ -1,7 +1,7 @@
 const validator = require('validator');
 
 const nameValidate = (displayName) => {
-  if (!displayName || !validator.isAlpha(displayName) || displayName.length < 8) {
+  if (!displayName || displayName.length < 8) {
     return false;
   }
   return true;
