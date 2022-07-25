@@ -1,4 +1,4 @@
-const { PostCategory } = require('../database/models/postCategory');
+const { PostCategory } = require('../database/models');
 
 const createPostCategorie = async ({ categoryIds, postId }) => {
   const postCategory = Promise.all(
