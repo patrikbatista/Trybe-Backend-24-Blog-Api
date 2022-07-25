@@ -21,8 +21,8 @@ const findCategory = async (categoryIds) => {
       },
     },
   });
-  if (result.length !== categoryIds.length) return false;
-  return true;
+  // if (result.length !== categoryIds.length) return false;
+  return result;
 };
 
 module.exports = {
